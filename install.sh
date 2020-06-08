@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Script must be executed in this directory
+# This script must be executed in the repository root directory
 
 # backup old config files
 [ -f $HOME/.vimrc ] && mv $HOME/.vimrc $HOME/.vimrc.bak
-[ -f $HOME/.bashrc ] && mv $HOME/.bashrc $HOME/.bashrc.bak
-[ -f $HOME/.bash_aliases ] && mv $HOME/.bash_aliases $HOME/.bash_aliases.bak
+[ -f $HOME/.zshrc ] && mv $HOME/.zshrc $HOME/.zshrc.bak
 [ -f $HOME/.gdbinit ] && mv $HOME/.gdbinit $HOME/.gdbinit.bak
+[ -f $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 
 # create symlinks for dot files
 for filename in .[A-Za-z]*
