@@ -5,6 +5,8 @@ filetype indent on
 syntax enable
 set number " show line numbers
 
+set mouse=a
+
 set tabstop=4
 set expandtab
 set shiftwidth=4
@@ -15,7 +17,12 @@ set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
 nnoremap <space>f za
 set foldmethod=indent " fold based on indent level
-autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
+" tab is 2 spaces for web development
+" autocmd FileType javascript.jsx set ts=2 sw=2 sts=0 noexpandtab
+
+" fix indentation for Makefiles
+autocmd FileType make set noexpandtab shiftwidth=4 tabstop=4 softtabstop=0
 
 " move vertically by visual line (no jumping over multiline-lines
 nnoremap j gj
@@ -26,8 +33,11 @@ nnoremap :WQ :wq
 " write changes to file
 nnoremap <space>w :w<enter>
 
+" comment
+nnoremap <space>c I// <esc>
+
 " make binds
-nnoremap mm :w<enter>:make -j<enter>
+nnoremap mm :w<enter>:make -j$(nproc)<enter>
 nnoremap ma :w<enter>:make all<enter>
 nnoremap mc :w<enter>:make clean<enter>
 nnoremap mr :w<enter>:make run<enter>
@@ -41,23 +51,16 @@ nnoremap <space>j <C-w>j
 nnoremap <space>k <C-w>k
 nnoremap <space>l <C-w>l
 
+" start entering shell command
+nnoremap <space>s :!
+
 " edit vimrc and source it
 nnoremap ,,c :e ~/.vimrc<enter>
 nnoremap ,,s :source ~/.vimrc<enter>
-
-" save folds between sessions
-augroup AutoSaveFolds
-    autocmd!
-    autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent loadview
-augroup END
+nnoremap ,,z :e ~/.zshrc<enter>
 
 " emacs style shortcuts for jumping to line beginning and end
 nnoremap <C-e> <C-o>$
 nnoremap <C-a> <C-o>I
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>I
-
-" todo config only for .rs files
-nmap <C-r> :w<CR>:!cargo run<CR>
-nnoremap <space>r :w<enter>:!cargo run<enter>
