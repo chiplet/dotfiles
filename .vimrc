@@ -23,6 +23,7 @@ set foldmethod=indent " fold based on indent level
 
 " fix indentation for Makefiles
 autocmd FileType make set noexpandtab shiftwidth=4 tabstop=4 softtabstop=0
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " move vertically by visual line (no jumping over multiline-lines
 nnoremap j gj
