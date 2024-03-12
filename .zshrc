@@ -103,25 +103,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# add Qt bin to path
-export PATH="/Users/user/Qt/5.13.1/clang_64/bin:$PATH"
-
-# mosh locale config
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
-# CubeIDE arm-none-eabi tools
-PATH=$PATH:/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.0.0.201904181610/tools/bin
-
-alias ls="exa"
-# alias cat="bat"
-
-# Add flutter to path
-PATH=$PATH:/Users/user/code/poehina/flutter/bin
-
-# add hostname to prompt
-PROMPT="$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
-
 alias hiljaa="python3 -c 'import webbrowser;webbrowser.open(\"http://mynoise.net/NoiseMachines/whiteNoiseGenerator.php\")'"
 
